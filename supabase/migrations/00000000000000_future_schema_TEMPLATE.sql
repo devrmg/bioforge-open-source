@@ -1,0 +1,5 @@
+-- FUTURE-ONLY SCHEMA DESIGN TEMPLATE FOR BIOFORGE
+-- Intentionally not executed. The implementing agent must replace this template
+-- with reviewed, complete SQL only when needed. Do not fake a working schema.
+-- Candidate entities: profiles, profile_links, theme_presets.
+-- Important: DEFAULT_MODE=local; ZERO database dependencies during build/release.

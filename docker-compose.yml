@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  bioforge:
+    image: ghcr.io/bioforge/bioforge-open-source:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bioforge-app
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      - VITE_DATABASE_MODE=local
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

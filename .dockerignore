@@ -1,0 +1,9 @@
+node_modules
+dist
+.git
+.agents
+PROMPTS
+docs
+supabase
+.env*
+npm-debug.log*

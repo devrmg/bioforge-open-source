@@ -1,0 +1,23 @@
+# BioForge — Link in Bio Static Site Generator
+
+> BioForge is a free, self-hosted, open-source static site generator designed for digital creators, freelance engineers, and artists. It runs entirely offline without a live database or cloud account.
+
+## Core Capabilities
+- Profile Studio: Customize avatar, display name, handle, profession badge, and bio.
+- Social Links: Add, highlight, and reorder links with icons for GitHub, X, Instagram, Spotify, YouTube, and more.
+- Accessible Theme Presets: 6 high-contrast themes tested against WCAG AA and AAA color standards.
+- Responsive Live Preview: Test on phone (375px), tablet, and desktop viewports.
+- Static Website ZIP Export: Generates standalone HTML5, modern CSS, and SVG icons in a single click.
+- QR Code: High-resolution PNG and SVG generator for printed flyers and badges.
+- Portable JSON Backups: 100% private client-side backups with strict schema validation.
+- Zero-Database Architecture: `DATABASE_MODE=local` eliminates server credentials, telemetry, and security vulnerabilities.
+
+## Technical Stack
+- Frontend: React 18, TypeScript, Tailwind CSS, Lucide icons, JSZip, QRCode.
+- Deployment: Standalone static export, or self-hosted Docker container (Nginx on port 8080) on Hostinger VPS.
+- License: MIT License.
+
+## Important Privacy & Scope Notice
+- All user edits are stored locally in the browser's `localStorage`.
+- BioForge does NOT automatically synchronize data across devices; users must export a JSON backup to move between devices.
+- No third-party analytics, user tracking, or advertising scripts are included.

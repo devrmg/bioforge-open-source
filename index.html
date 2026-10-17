@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BioForge — Open Source Self-Hosted Link in Bio Generator</title>
+    <meta name="description" content="Build an elegant, accessible link-in-bio profile and export a self-contained static website to host on your own domain or VPS. 100% free and private with zero database." />
+    <meta name="keywords" content="link in bio self hosted, open source linktree alternative, personal link page, static bio generator" />
+    <meta name="theme-color" content="#090d16" />
+    <link rel="canonical" href="https://bioforge.dev/" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BioForge — Open Source Self-Hosted Link in Bio Generator" />
+    <meta property="og:description" content="Build an elegant, accessible link-in-bio profile and export a self-contained static website. Zero database, zero telemetry, full ownership." />
+    <meta property="og:url" content="https://bioforge.dev/" />
+    <meta property="og:site_name" content="BioForge" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BioForge — Open Source Self-Hosted Link in Bio Generator" />
+    <meta name="twitter:description" content="Build an elegant, accessible link-in-bio profile and export a self-contained static website. Zero database, zero telemetry, full ownership." />
+
+    <!-- Structured Data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "BioForge",
+      "url": "https://bioforge.dev",
+      "description": "Self-hosted, open-source static link-in-bio site generator for digital creators, freelance engineers, and artists. Operates offline with zero database.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web, Docker",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Profile Studio Editor",
+        "Social Links with SVG Icons",
+        "Accessible Theme Presets",
+        "Live Device Preview",
+        "Static Website ZIP Export",
+        "QR Code Generator",
+        "JSON Backup and Restore",
+        "Zero Database Architecture"
+      ],
+      "license": "https://opensource.org/licenses/MIT"
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does BioForge require a live database or user account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. BioForge is designed to run entirely in local mode (DATABASE_MODE=local) without user accounts, Supabase, or PostgreSQL connections. All edits stay right inside your browser session."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I host the exported static bio site?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When you click Export Site and download the Static ZIP package, you receive index.html and style.css. You can drag and drop these files to Cloudflare Pages, GitHub Pages, Netlify, or upload them to your web root on any Hostinger VPS or web server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I self-host the BioForge editor on my own Hostinger VPS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! BioForge includes a production-tested multi-stage Dockerfile and docker-compose.yml that serves the SPA using a lightweight Nginx web server on port 8080. You can deploy it to your Hostinger VPS using our one-click Compose deployment button or Docker CLI."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2322c55e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/><path d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/></svg>" />
+  </head>
+  <body class="h-full bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-white">
+    <div id="root" class="min-h-full flex flex-col"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
