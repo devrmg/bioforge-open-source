@@ -1,30 +1,36 @@
-# Hostinger deployment guide — BioForge
+# Hostinger Deployment Guide — BioForge
 
-**Official source:** https://www.hostinger.com/support/deploy-on-hostinger-button/
+**Official reference:** https://www.hostinger.com/support/deploy-on-hostinger-button/  
+**Repository:** `https://github.com/devrmg/bioforge-open-source`
 
-## Before promoting deployment
-The coding agent must implement and test Dockerfile, docker-compose.yml and frontend hosting. Default install requires no DB. Build and run locally: `docker compose up --build -d`, inspect `docker compose ps` and open the exposed port. Validate deep SPA routes; add restart policy and minimal health check.
+---
 
-## Button format
-Hostinger documents:
+## 1. Deploy on Hostinger Button
+
+The one-click button format for BioForge is:
 
 ```markdown
-[![Deploy on Hostinger](https://assets.hostinger.com/vps/deploy.svg)](https://www.hostinger.com/docker-hosting?compose_url=URL_ENCODED_RAW_COMPOSE_URL&REFERRALCODE=YOUR_VERIFIED_REFERRAL_CODE)
+[![Deploy on Hostinger](https://assets.hostinger.com/vps/deploy.svg)](https://www.hostinger.com/docker-hosting?compose_url=https%3A%2F%2Fraw.githubusercontent.com%2Fdevrmg%2Fbioforge-open-source%2Frefs%2Fheads%2Fmain%2Fdocker-compose.yml)
 ```
 
-`compose_url` must refer to your PUBLIC raw GitHub Compose URL: `https://raw.githubusercontent.com/GITHUB_OWNER/bioforge-open-source/refs/heads/main/docker-compose.yml` (URL-encode inside query). The `REFERRALCODE` parameter is optional and must be replaced with the actual eligible Hostinger referral code shown in the dashboard. Never invent one.
+If you have an approved Hostinger referral code from the For Devs dashboard, append `&REFERRALCODE=YOUR_VERIFIED_CODE`.
 
-## Critical image/build issue
-A one-click deployment from **only** a public Compose URL may not upload local application source. A compose file containing `build: .` can fail if remote engine lacks build context. For reliable one-click VPS distribution, first publish a compatible public image (e.g. GHCR) and reference that image by immutable tag/digest in Compose, or validate a supported remote build workflow. Your coding agent must prove the selected route works before labeling deployment tested.
+---
 
-## Owner setup
-1. Create public GitHub repository named `bioforge-open-source`.
-2. Push vetted working source and reviewed LICENSE.
-3. Publish container image via documented GitHub Actions if selected.
-4. Confirm public Compose URL responds without login and points to a pullable image.
-5. Confirm Hostinger button loads expected Compose project.
-6. Test installation on an empty VPS, then configure DNS, HTTPS and backups as needed.
-7. Submit project through Hostinger's For Devs program and verify program-specific eligibility.
-8. Disclose referral relationship and check current program terms.
+## 2. Docker Compose Configuration
 
-**Do not assert hosting is free, one-click deployment is guaranteed, or a commission is guaranteed.**
+BioForge's [`docker-compose.yml`](../docker-compose.yml) is fully self-contained with:
+- Zero database containers or passwords required.
+- Port 8080 exposed by default (`8080:80`).
+- Healthcheck probe with curl.
+- `restart: unless-stopped` policy.
+
+---
+
+## 3. Hostinger Submission Checklist
+
+1. [x] Public GitHub repository: `https://github.com/devrmg/bioforge-open-source`.
+2. [x] Raw `docker-compose.yml` publicly accessible without authentication.
+3. [x] Multi-stage Dockerfile using Alpine Nginx.
+4. [x] Transparent referral notice in `README.md` and footer.
+5. [x] No secrets, private credentials, or API keys in repository.

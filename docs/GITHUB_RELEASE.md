@@ -1,18 +1,36 @@
-# GitHub publishing — bioforge-open-source
+# GitHub Release & Repository Management — BioForge
 
-This ZIP is a development blueprint. Before creating a public release, the agent must generate real code, verify package scripts and write the final product README.
+**Repository:** `https://github.com/devrmg/bioforge-open-source`  
+**License:** MIT License  
+**Default Branch:** `main`
 
-## Suggested sequence
+---
+
+## 1. Repository Topics & Tags
+
+When configuring the repository on GitHub, add these topics in the repository settings to enhance discoverability:
+`link-in-bio`, `self-hosted`, `static-site-generator`, `react`, `typescript`, `tailwind`, `docker`, `hostinger`, `open-source`, `privacy-first`
+
+---
+
+## 2. Release Tagging
+
+To tag and publish a new semantic release:
+
 ```bash
-# run inside the actual implemented project
-git init
-git branch -M main
-git add .
-git status --short
-git commit -m "feat: release initial open-source MVP"
-# create public empty repository on GitHub first, named bioforge-open-source
-git remote add origin https://github.com/GITHUB_OWNER/bioforge-open-source.git
-git push -u origin main
+# 1. Ensure working directory is clean
+git status
+
+# 2. Tag current release
+git tag -a v1.0.0 -m "Release v1.0.0 — BioForge Self-Hosted MVP"
+
+# 3. Push tag to GitHub (triggers automated docker-publish.yml workflow)
+git push origin v1.0.0
 ```
 
-Only push with explicit permission; inspect git diff and never commit `.env`, secrets, private files or build artifacts. Add real screenshots, public image, issue templates, CONTRIBUTING, SECURITY, CHANGELOG and releases. Configure CI to run install, lint, types, test and build. Set repository topics: `open-source`, `self-hosted`, `docker`, `hostinger`, `typescript`, plus domain-specific tags.
+---
+
+## 3. GitHub Actions Workflows
+
+- **`.github/workflows/ci.yml`:** Automatically executes on pull requests and commits to `main`. Runs `npm ci`, `npm run typecheck`, `npm run test`, and `npm run build`.
+- **`.github/workflows/docker-publish.yml`:** Automatically builds and publishes the production container image to GitHub Container Registry (`ghcr.io/devrmg/bioforge-open-source:latest`) upon release publication.
